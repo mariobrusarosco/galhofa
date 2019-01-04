@@ -1,21 +1,28 @@
 {
   "name": "galhofa",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+	"version": "1.0.2",
+	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
+	"description": "",
+	"main": "dist/galhofa.js",
+	"files": ["dist"],
   "scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"deploy": "yarn eslint",
-		"eslint": "eslint index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "yarn eslint && webpack --config webpack.config.js",
+    "eslint": "eslint src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mariobrusarosco/galhofa.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mariobrusarosco/galhofa/issues"
   },
-  "homepage": "https://github.com/mariobrusarosco/galhofa#readme"
+  "homepage": "https://github.com/mariobrusarosco/galhofa#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.1"
+  }
 }
