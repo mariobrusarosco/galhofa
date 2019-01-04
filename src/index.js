@@ -1,16 +1,13 @@
-import _ from 'lodash'
-
-console.log(`Galhofa JS: I'm the one who knocks! I'm the danger`)
-
+const _ = require('lodash')
 
 console.log("Just testing lodash as a perDependency", _.join(['Walter',' ', 'White']))
 
-// const { expect, test } = require(`./Lab`)
+module.exports = require(`./Lab`)
 
-module.exports = {
-	test: "ae",
-	test2: "se2"
-}
+// module.exports = {
+// 	test: "ae",
+// 	test2: "se2"
+// }
 
 // module.exports = Test
 // console.log(test)

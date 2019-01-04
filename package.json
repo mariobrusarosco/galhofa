@@ -1,11 +1,14 @@
 {
   "name": "galhofa",
-	"version": "1.0.2",
-	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
-	"description": "",
-	"main": "dist/galhofa.js",
-	"files": ["dist"],
+  "version": "1.0.3",
+  "author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
+  "description": "",
+  "main": "dist/galhofa.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "dev": "webpack --watch --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "yarn eslint && webpack --config webpack.config.js",
     "eslint": "eslint src/index.js"
@@ -23,6 +26,10 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "eslint": "^5.11.1"
+    "eslint": "^5.11.1",
+    "express": "^4.16.4",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-dev-server": "^3.1.14"
   }
 }
