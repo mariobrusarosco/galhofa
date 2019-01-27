@@ -2,7 +2,10 @@ const _ = require('lodash')
 
 console.log("Just testing lodash as a perDependency", _.join(['Walter',' ', 'White']))
 
-module.exports = require(`./Lab`)
+module.exports = {
+  Lab: require(`./Lab`),
+  SectionWatcher: require('./SectionWatcher')
+}
 
 // module.exports = {
 // 	test: "ae",
