@@ -6,8 +6,11 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'galhofa.js',
-		libraryTarget: 'commonjs'
-		// library: 'galhofa', // Necessary only when using multiple entry points
+		library: {
+      root: 'Galhofa',
+      commonjs: 'galhofa'
+    },
+		libraryTarget: 'umd'
 	},
 	externals: [
 		{
