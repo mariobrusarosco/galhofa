@@ -1,10 +1,12 @@
-const _ = require('lodash')
+// onsoleconst _ = require('lodash')
 
-console.log("Just testing lodash as a perDependency", _.join(['Walter',' ', 'White']))
+// console.log("Just testing lodash as a perDependency!!!!!", _.join(['Walter',' ', 'White']))
+
 
 module.exports = {
-  Lab: require(`./Lab`),
-  SectionWatcher: require('./SectionWatcher')
+  // Lab: require(`./Lab`),
+	SectionWatcher: require('./SectionWatcher'),
+	Pagination: require('./Pagination')
 }
 
 // module.exports = {

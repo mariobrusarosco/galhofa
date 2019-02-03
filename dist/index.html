@@ -5,8 +5,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
+	<style>
+		.section {
+			height: 300px;
+		}
+	</style>
 </head>
 <body>
+	<!-- <script src="https://unpkg.com/galhofa@1.0.3/dist/galhofa.js"></script> -->
+	<section class="section" data-section-id="1">1</section>
+	<section class="section" data-section-id="2">2</section>
+	<section class="section" data-section-id="3">3</section>
+	<section class="section" data-section-id="4">4</section>
+	<section class="section" data-section-id="5">5</section>
+	<section class="section" data-section-id="6">6</section>
+	<section class="section" data-section-id="7">7</section>
+
 	<script src="galhofa.js"></script>
+	<script>
+		const SectionWatcher = new Galhofa.SectionWatcher({
+			querySelector: '.section',
+			debugMode: true,
+			// promise: new Promise(),
+		})
+
+		console.log('', SectionWatcher)
+	</script>
 </body>
 </html>

@@ -9,9 +9,10 @@
 	],
 	"scripts": {
 		"dev": "webpack --watch --config webpack.config.js",
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest --config jest.config.js",
+		"test:watch": "yarn test -- --watch",
 		"build": "yarn eslint && webpack --config webpack.config.js",
-		"eslint": "eslint src/index.js"
+		"eslint": "eslint src/**/*"
 	},
 	"repository": {
 		"type": "git",
@@ -28,6 +29,8 @@
 	"devDependencies": {
 		"eslint": "^5.11.1",
 		"express": "^4.16.4",
+		"jest": "^24.0.0",
+		"jest-cli": "^24.0.0",
 		"nodemon": "^1.18.9",
 		"webpack": "^4.28.3",
 		"webpack-cli": "^3.2.0",
