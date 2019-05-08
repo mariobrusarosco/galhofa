@@ -1,0 +1,39 @@
+version: 2
+
+defaults:
+	working_directory: ~/repo
+	docker:
+		- image: circleci/node:10
+
+jobs:
+  build:
+		steps:
+			- checkout
+      - restore_cache: # special step to restore the dependency cache
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          key: dependency-cache-{{ checksum "package.json" }}
+
+			- run: npm install
+
+			- run:
+          name: Lint Files
+          command: yarn eslint
+
+			- save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+					- persist_to_workspace:
+          root: ~/repo
+					paths: .
+	deploy:
+		steps:
+			- attach_workspace:
+					at: ~/repo
+			- run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish

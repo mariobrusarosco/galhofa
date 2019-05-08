@@ -1,6 +1,6 @@
 {
 	"name": "galhofa",
-	"version": "1.0.4",
+	"version": "1.0.6",
 	"author": "Mario Brusarosco <mariobrusarosco@gmail.com> (http://example.com)",
 	"description": "",
 	"main": "dist/galhofa.js",
