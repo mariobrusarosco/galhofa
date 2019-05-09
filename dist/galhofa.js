@@ -96,13 +96,83 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/Pagination/index.js":
+/***/ "./src/Lab/Expect/index.js":
 /*!*********************************!*\
-  !*** ./src/Pagination/index.js ***!
+  !*** ./src/Lab/Expect/index.js ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+const expect = function(testedValue) {
+	return {
+		asPureAs: function(expectedValue) {
+			if(testedValue !== expectedValue) {
+				throw new Error(`${testedValue} isn't as pure as ${expectedValue}`)
+			}
+		}
+	}
+}
+
+module.exports = expect
+
+
+/***/ }),
+
+/***/ "./src/Lab/Test/index.js":
+/*!*******************************!*\
+  !*** ./src/Lab/Test/index.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const test = (testName, givenTest) => {
+	try{
+		givenTest()
+		console.log(`\n \u{2714}  : ${testName} has passed.\n `)
+	}
+	catch(error) {
+		console.error(`\n \u{274C}  : ${testName} has failed. \n\n  ${error}\n`)
+	}
+}
+
+module.exports = test
+
+
+/***/ }),
+
+/***/ "./src/Lab/index.js":
+/*!**************************!*\
+  !*** ./src/Lab/index.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const expect = __webpack_require__(/*! ./Expect */ "./src/Lab/Expect/index.js")
+const test = __webpack_require__(/*! ./Test */ "./src/Lab/Test/index.js")
+
+module.exports = {
+	expect,
+	test
+}
+
+
+/***/ }),
+
+/***/ "./src/Pagination/index.js":
+/*!*********************************!*\
+  !*** ./src/Pagination/index.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const Pagination = {
+
+}
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Pagination);
 
 
 /***/ }),
@@ -123,9 +193,9 @@ AnchorsList.prototype.debug = function() {
 	console.log(this, 'debugging Anchors')
 }
 
-AnchorsList.prototype.create = function(querySelector) {
+// AnchorsList.prototype.create = function(querySelector) {
 
-}
+// }
 
 
 
@@ -185,6 +255,49 @@ module.exports = __webpack_require__(/*! ./core */ "./src/SectionWatcher/core/in
 
 /***/ }),
 
+/***/ "./src/core/compose/index.js":
+/*!***********************************!*\
+  !*** ./src/core/compose/index.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const compose = (...fns) => value => fns.reduce((acc, currFn) => currFn(acc), value)
+
+module.exports = compose
+
+
+/***/ }),
+
+/***/ "./src/core/index.js":
+/*!***************************!*\
+  !*** ./src/core/index.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+	pipe: __webpack_require__(/*! ./pipe */ "./src/core/pipe/index.js"),
+	compose: __webpack_require__(/*! ./compose */ "./src/core/compose/index.js")
+}
+
+
+/***/ }),
+
+/***/ "./src/core/pipe/index.js":
+/*!********************************!*\
+  !*** ./src/core/pipe/index.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+const pipe = (...fns) => value => fns.reduceRight((previousFn, currFn) => currFn(previousFn), value)
+
+module.exports = pipe
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -192,37 +305,14 @@ module.exports = __webpack_require__(/*! ./core */ "./src/SectionWatcher/core/in
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// onsoleconst _ = require('lodash')
-
-// console.log("Just testing lodash as a perDependency!!!!!", _.join(['Walter',' ', 'White']))
-
 
 module.exports = {
-  // Lab: require(`./Lab`),
+  Lab: __webpack_require__(/*! ./Lab */ "./src/Lab/index.js"),
 	SectionWatcher: __webpack_require__(/*! ./SectionWatcher */ "./src/SectionWatcher/index.js"),
-	Pagination: __webpack_require__(/*! ./Pagination */ "./src/Pagination/index.js")
+	Pagination: __webpack_require__(/*! ./Pagination */ "./src/Pagination/index.js"),
+	G: __webpack_require__(/*! ./core */ "./src/core/index.js")
 }
 
-// module.exports = {
-// 	test: "ae",
-// 	test2: "se2"
-// }
-
-// module.exports = Test
-// console.log(test)
-// export default {
-// 	...test
-// }
-
-// const DrugLord = "Walter White"
-
-// test("Drug Lord test One", () => {
-// 	expect(DrugLord).asPureAs('Walter !!hite')
-// })
-
-// test("Drug Lord test Two", () => {
-// 	expect(DrugLord).asPureAs('Walter White')
-// })
 
 
 

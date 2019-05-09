@@ -7,9 +7,9 @@ AnchorsList.prototype.debug = function() {
 	console.log(this, 'debugging Anchors')
 }
 
-AnchorsList.prototype.create = function(querySelector) {
+// AnchorsList.prototype.create = function(querySelector) {
 
-}
+// }
 
 
 
